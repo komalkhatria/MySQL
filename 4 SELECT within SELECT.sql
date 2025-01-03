@@ -48,10 +48,11 @@ SELECT continent, name from world x
 -- 9
 SELECT name, continent, population from world x
  WHERE 25000000>= ALL (SELECT population from world y
-                       WHERE x.continent= y.continent);
+                       WHERE x.continent= y.continent);		#
  
 -- 10
 SELECT name, continent from world x
  WHERE population > ALL
   (SELECT 3*population from world y 
-   WHERE x.continent= y.continent and x.name!=y.name);
+   WHERE x.continent= y.continent 
+   AND x.name!=y.name);		#
